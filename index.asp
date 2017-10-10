@@ -1,4 +1,4 @@
-<%name=Request(name)%>
+<%dim name=Request(name)%>
 <%if name="name" then%>
 <%=name%>-1
 <%else%>
