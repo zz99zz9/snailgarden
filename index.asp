@@ -1,4 +1,4 @@
-<%name=Request(namea)%>
+<%name=Request(name)%>
 <%if name="namea" then%>
 <%=name%>-1
 <%else%>
