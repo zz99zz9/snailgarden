@@ -1,6 +1,6 @@
 <%name=Request(namea)%>
 <%if name="namea" then%>
-ok
+<%=name%>-1
 <%else%>
-add
+<%=name%>-2
 <%end if%>
