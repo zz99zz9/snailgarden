@@ -1,5 +1,5 @@
 <%dim name
-name=Request.QueryString(name)%>
+name=Request("name")%>
 <%if name="name" then%>
 <%=name%>-1
 <%else%>
