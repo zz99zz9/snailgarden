@@ -1,7 +1,10 @@
-<%dim name
-name=Request("name")%>
+<%dim opid,userinfo
+opid=Request("signature")
+userinfo=Request("userinfo")
+%>
 <%if name="name" then%>
-<%=name%>-1
+<%=opid%>-1
 <%else%>
-<%=name%>-2
+<%=opid%><br>
+<%=userinfo%>
 <%end if%>
