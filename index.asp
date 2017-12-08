@@ -1,5 +1,5 @@
 <%dim opid,userinfo
-opid=Request("signature")
+opid=Request("opid")
 userinfo=Request("userinfo")
 %>
 <%if name="name" then%>
