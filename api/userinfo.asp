@@ -14,8 +14,9 @@ set rs=server.CreateObject("adodb.recordset")
 	 rs.open sql,conn,1,1	 
 	 if rs.eof then
 	 	'用户不存在，存入用户信息
-         response.write ("add添加")
+         response.write (userinfo)
       '  conn.execute"INSERT INTO [user] (wxid,nickname,avatarurl,gender,province,city,tel,status,uptime,lasttime) VALUES ('"&opid&"','"&userinfo.nickname&"','"&userinfo.avatarurl&"','"&userinfo.gender&"','"&userinfo.province&"','"&userinfo.city&"','"&userinfo.tel&"','0','"&now()&"','"&now()&"')"
+       
    	 else
         '用户已存在，修改用户信息
          response.write ("mod修改")
