@@ -1,5 +1,4 @@
 <%@LANGUAGE="VBSCRIPT" CODEPAGE="65001"%>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!--#include file="../inc/conn.asp"-->
 <%dim opid,userinfo
 opid=Request("opid")
@@ -16,10 +15,10 @@ set rs=server.CreateObject("adodb.recordset")
 	 rs.open sql,conn,1,1	 
 	 if rs.eof then
 	 	'用户不存在，存入用户信息
-         response.write ("add")
+         response.write ("add添加")
    	 else
         '用户已存在，修改用户信息
-         response.write ("mod")
+         response.write ("mod修改")
      end if
 'end if
 
