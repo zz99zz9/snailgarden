@@ -3,8 +3,7 @@
 <%dim opid,userinfo
 opid=Request("opid")
 userinfo=Request("userinfo")
-if opid="" then opid=0
-if userinfo="" then userinfo=0
+
 if opid="" or userinfo="" then
  response.write("用户信息错误")
  else
