@@ -12,7 +12,7 @@ if userinfo="" then userinfo=0
 %>
 <%'验证数据库中是否有Openid,无则存，有则改
 set rs=server.CreateObject("adodb.recordset")
-     sql="select * from [user] where wxid='"&opid
+     sql="select * from [user] where wxid='"&opid&"'"
 	 rs.open sql,conn,1,1	 
 	 if rs.eof then
 	 	'用户不存在，存入用户信息
