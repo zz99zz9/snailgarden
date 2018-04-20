@@ -1,4 +1,3 @@
-<%@LANGUAGE="VBSCRIPT" CODEPAGE="65001"%>
 <!--#include file="../inc/conn.asp"-->
 <%dim opid,userinfo
 opid=Request("opid")
