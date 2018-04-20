@@ -19,7 +19,7 @@ set rs=server.CreateObject("adodb.recordset")
    	 else
         '用户已存在，修改用户信息
          response.write ("mod修改")
-          conn.execute"update [user] set nickname='"&userinfo.nickname&"',avatarurl='"&userinfo.avatarurl&"',gender='"&userinfo.gender&"',province='"&userinfo.province&"',city='"&userinfo.city&"',tel='"&userinfo.tel&"',lasttime='"&now()&"' where wxid='"&opid&"'"
+        '  conn.execute"update [user] set nickname='"&userinfo.nickname&"',avatarurl='"&userinfo.avatarurl&"',gender='"&userinfo.gender&"',province='"&userinfo.province&"',city='"&userinfo.city&"',tel='"&userinfo.tel&"',lasttime='"&now()&"' where wxid='"&opid&"'"
      end if
 end if
 
