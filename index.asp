@@ -3,8 +3,8 @@ opid=Request("opid")
 userinfo=Request("userinfo")
 %>
 <%if name="name" then%>
-<%=opid%>-1
+<%=opid%>0
 <%else%>
-<%=opid%><br>
+<%=opid%><br>1
 <%=userinfo%>
 <%end if%>
