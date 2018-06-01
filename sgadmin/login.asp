@@ -58,7 +58,7 @@ set rs=server.CreateObject("adodb.recordset")
    	 else
      	Session.Timeout=999
      	response.cookies("adminname")=adminname  
-     	response.Redirect"Pro_List.Asp"
+     	response.Redirect"index.asp"
      end if
 End if	 
 %>
