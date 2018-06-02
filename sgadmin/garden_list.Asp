@@ -106,18 +106,11 @@ end if
   <script type="text/javascript">
 //导航菜单
 
-<%if classid>19 and classid<>25 then%>
 
-$(".nav7").addClass('active');
-$(".nav7-<%=classid%>").addClass('active');
-<%elseif classid>15 and classid<>25  then%>
 
-$(".nav5").addClass('active');
-$(".nav5-<%=classid%>").addClass('active');
-<%else%>
-$(".nav4").addClass('active');
-$(".nav4-<%=classid%>").addClass('active');
-<%end if%>
+$(".nav2").addClass('active');
+$(".nav2-2").addClass('active');
+
 function ConfirmDel()
 {
    if(confirm("确定要删除选中的内容吗？一旦删除将不能恢复！"))

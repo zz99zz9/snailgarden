@@ -92,8 +92,8 @@ end if
 
 
 
-$(".nav6").addClass('active');
-$(".nav6-3").addClass('active');
+$(".nav2").addClass('active');
+$(".nav2-3").addClass('active');
 
 function ConfirmDel()
 {
