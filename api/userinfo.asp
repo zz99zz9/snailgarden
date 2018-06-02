@@ -33,7 +33,19 @@ set rs=server.CreateObject("adodb.recordset")
       '   response.write ("mod修改")
           conn.execute"update [user] set nickname='"&nickname&"',avatarurl='"&avatarurl&"',gender='"&gender&"',province='"&province&"',city='"&city&"',tel='"&tel&"',lasttime='"&now()&"' where wxid='"&opid&"'"
           '判断此用户有没有花园
-          has=1
+          set rs=server.CreateObject("adodb.recordset")
+     sql="select * from [garden] where wxid='"&opid&"'"
+
+'	 response.write sql
+'	 response.end()
+	 rs.open sql,conn,1,1	 
+	 if rs.eof then
+	 	has=2
+   	 else
+     	has=1
+     end if
+
+
           end if
 end if
 

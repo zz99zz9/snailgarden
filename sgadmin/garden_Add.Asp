@@ -118,7 +118,7 @@ uid=request.QueryString("id")%>
 <div class="col-lg-offset-2 col-lg-7">
 <button class="btn btn-danger save" type="button" style="margin:15px auto;">保存</button>
 <input id="action" value="add" type="hidden">
-<input id="uid" value="<%=uid%>" type="hidden">
+<input id="uid" value="<%=uid%>=" type="hidden">
 </div>
   </div>
 </form>
