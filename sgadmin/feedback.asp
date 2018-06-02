@@ -83,14 +83,12 @@ rs.open sql,conn,1,1
 action=request.QueryString("Action")
 delid=request.QueryString("lyid")
 if action="Del" then
-conn.execute "delete from [feedback] id="&Trim(delid)
+conn.execute "delete from [feedback] where id="&Trim(delid)
 response.Redirect("feedback.Asp?sta=del")
 end if
 %>
   <script type="text/javascript">
 //导航菜单
-
-
 
 $(".nav2").addClass('active');
 $(".nav2-3").addClass('active');
