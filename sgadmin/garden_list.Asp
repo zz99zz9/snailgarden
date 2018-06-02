@@ -41,7 +41,7 @@ rs.open sql,conn,1,1
           <tr > 
           
             <th width="40" class="hidden-phone"><strong>ID</strong></td>
-            <th width="60" class="hidden-phone"><strong>昵称</strong></td>
+            <th width="60" class="hidden-phone"><strong>姓名</strong></td>
             <th width="60" class="hidden-phone"><strong>电话</strong></td>
             <th width="70" class="hidden-phone"><strong>小品</strong></td>
             <th width="70" class="hidden-phone"><strong>乔木</strong></td>
@@ -55,8 +55,8 @@ rs.open sql,conn,1,1
           <%do while not rs.eof%>
           <tr > 
             <td class="hidden-phone"><%=rs("id")%></td>
-            <td class="hidden-phone"></td>
-            <td class="hidden-phone"></td>
+            <td class="hidden-phone"><%=rs("uid")%></td>
+            <td class="hidden-phone"><%=rs("uid")%></td>
             <td><a class="btn btn-info btn-xs" href="Pic_list.asp?pro_id=47">
           <span class="glyphicon glyphicon-picture"></span> 8 </a> </td>
           <td><a class="btn btn-info btn-xs" href="Pic_list.asp?pro_id=47">
@@ -99,8 +99,8 @@ rs.open sql,conn,1,1
 action=request.QueryString("Action")
 delid=request.QueryString("id")
 if action="Del" then
-conn.execute "delete from [user] where id="&Trim(delid)
-response.Redirect("user_List.Asp?sta=del")
+conn.execute "delete from [garden] where id="&Trim(delid)
+response.Redirect("garden_List.Asp?sta=del")
 end if
 %>
   <script type="text/javascript">

@@ -41,10 +41,10 @@ set rs=server.CreateObject("adodb.recordset")
 	 rs.open sql,conn,1,1	 
 	 if rs.eof then
 	 	has=2
-     has1=sql
+  '   has1=sql
    	 else
      	has=1
-       has1=sql
+   '   has1=sql
      end if
 
 
@@ -55,7 +55,7 @@ Response.ContentType = "text/JSON"
 Dim Jsons
 Set Jsons = jsObject()
 Jsons("has") = has
-Jsons("has1") = has1
+'Jsons("has1") = has1
 
 Response.write Jsons.jsString
 
