@@ -7,7 +7,7 @@ nickname=request("nickname")
 avatarurl=request("avatarurl") 
 gender=request("gender") 
 province=request("province") 
-city=request("city") Í
+city=request("city") 
 tel=request("tel")
 
 if opid="" then
