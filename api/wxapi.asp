@@ -7,6 +7,7 @@ APP_SECRET=Request("secret")
 rescode=request("js_code")
 rant_type=request("rant_type")
 %>
+<%=rescode%>
 <script >
 
 		
