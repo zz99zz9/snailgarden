@@ -111,5 +111,14 @@ Set objTest = getJSONObject(strGetBackInfo)
 %>
 <%
 
-response.write objTest
+Response.ContentType = "text/JSON"
+Dim Jsons
+Set Jsons = jsObject()
+
+Jsons("session_key")=<%=objTest.session_key%>
+Jsons("openid")=<%=objTest.openid%>
+
+Response.write Jsons.jsString
+
+Set Jsons = Nothing
 %>
