@@ -25,5 +25,6 @@ rant_type=request("rant_type")
 	});
 
 </script>
-
-    <script src="../xgwl/js/jquery-3.1.1.min.js"></script>
+<%'https://snailgarden.shxgwl.com/api/wxapi.asp?js_code=01137oFB07lINe2qBUBB0KJAFB037oFF&appid=wx28c6e95caccd13c8&secret=2ee2a7f3ee8fcbe00e08bb9db971302d&grant_type=authorization_code
+%>
+    <script src="../sgadmin/xgwl/js/jquery-3.1.1.min.js"></script>
