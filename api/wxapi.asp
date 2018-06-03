@@ -32,7 +32,7 @@ WX_LOGIN_API = WX_LOGIN_API & "&grant_type=" & WX_GRANT_TYPE
 
 '获取返回的信息
 strGetBackInfo=getHTTPPage(WX_LOGIN_API) 
-'Response.Write strGetBackInfo
+Response.Write strGetBackInfo
 
 ''''下面是ASP远程调用接口的函数
 '''''''''''
@@ -111,5 +111,5 @@ Set objTest = getJSONObject(strGetBackInfo)
 %>
 <%
 
-response.write objTest
+'response.write objTest
 %>
