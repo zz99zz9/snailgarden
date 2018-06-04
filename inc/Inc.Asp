@@ -493,10 +493,10 @@ set oRs=Nothing
 response.write (xmname&" [ "&enname&" ]")
 end sub
 '------------------显示当前项目图片数-------------------------------------
-sub picN(v)
+sub picN(v,p)
 safeRequest(v)
 set oRs=Server.CreateObject("ADODB.Recordset")
-oRs.Open "select count(*) as contt from [Table_Pic] where pro_Id="&v,conn,1,1
+oRs.Open "select count(*) as contt from [g-img] where fid="&v&" and jg="&p&"",conn,1,1
 
 contt=oRs("contt")
 oRs.close
@@ -504,12 +504,26 @@ set oRs=Nothing
 response.write(contt)
 
 end sub
-'------------------开发商ID转图片-------------------------------------
-sub kfsid2url(v)
+'------------------ID转姓名-------------------------------------
+sub id2name(v)
 safeRequest(v)
 set oRs=Server.CreateObject("ADODB.Recordset")
-oRs.Open "select * from [class_kfs] where CId="&v,conn,1,1
-contt=oRs("Cfile")
+oRs.Open "select * from [user] where id="&v,conn,1,1
+contt=oRs("rname")&"["&ors("nickname")&"]"
+if contt="" then
+contt=oRs("nickname")
+end if
+oRs.close
+set oRs=Nothing
+response.write(contt)
+end sub
+'------------------ID转电话-------------------------------------
+sub id2tel(v)
+safeRequest(v)
+set oRs=Server.CreateObject("ADODB.Recordset")
+oRs.Open "select * from [user] where id="&v,conn,1,1
+contt=oRs("rtel")
+
 oRs.close
 set oRs=Nothing
 response.write(contt)

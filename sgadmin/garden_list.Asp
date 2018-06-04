@@ -43,6 +43,7 @@ rs.open sql,conn,1,1
             <th width="40" class="hidden-phone"><strong>ID</strong></td>
             <th width="60" class="hidden-phone"><strong>姓名</strong></td>
             <th width="60" class="hidden-phone"><strong>电话</strong></td>
+            <th width="70" class="hidden-phone"><strong>水电</strong></td>
             <th width="70" class="hidden-phone"><strong>小品</strong></td>
             <th width="70" class="hidden-phone"><strong>乔木</strong></td>
             <th width="70" class="hidden-phone"><strong>灌木</strong></td>
@@ -54,23 +55,24 @@ rs.open sql,conn,1,1
           <tbody>
           <%do while not rs.eof%>
           <tr > 
-            <td class="hidden-phone"><%=rs("id")%></td>
             <td class="hidden-phone"><%=rs("uid")%></td>
-            <td class="hidden-phone"><%=rs("uid")%></td>
-            <td><a class="btn btn-info btn-xs" href="Pic_list.asp?pro_id=47">
-          <span class="glyphicon glyphicon-picture"></span> 8 </a> </td>
-          <td><a class="btn btn-info btn-xs" href="Pic_list.asp?pro_id=47">
-          <span class="glyphicon glyphicon-picture"></span> 8 </a> </td>
-          <td><a class="btn btn-info btn-xs" href="Pic_list.asp?pro_id=47">
-          <span class="glyphicon glyphicon-picture"></span> 8 </a> </td>
-          <td><a class="btn btn-info btn-xs" href="Pic_list.asp?pro_id=47">
-          <span class="glyphicon glyphicon-picture"></span> 8 </a> </td>
-          <td><a class="btn btn-info btn-xs" href="Pic_list.asp?pro_id=47">
-          <span class="glyphicon glyphicon-picture"></span> 8 </a> </td>
-
+            <td class="hidden-phone"><%call id2name(rs("uid"))%></td>
+            <td class="hidden-phone"><%call id2tel(rs("uid"))%></td>
+            <td><a class="btn btn-info btn-xs" href="g-pic.asp?uid=<%=rs("uid")%>&px=4">
+          <span class="glyphicon glyphicon-picture"></span> <%call picN(rs("uid"),4)%> </a> </td>
+          <td><a class="btn btn-info btn-xs" href="g-pic.asp?uid=<%=rs("id")%>&px=5">
+          <span class="glyphicon glyphicon-picture"></span> <%call picN(rs("uid"),5)%>  </a> </td>
+          <td><a class="btn btn-info btn-xs" href="g-pic.asp?uid=<%=rs("id")%>&px=6">
+          <span class="glyphicon glyphicon-picture"></span> <%call picN(rs("uid"),6)%>  </a> </td>
+          <td><a class="btn btn-info btn-xs" href="g-pic.asp?uid=<%=rs("uid")%>&px=7">
+          <span class="glyphicon glyphicon-picture"></span> <%call picN(rs("uid"),7)%>  </a> </td>
+          <td><a class="btn btn-info btn-xs" href="g-pic.asp?uid=<%=rs("uid")%>&px=8">
+          <span class="glyphicon glyphicon-picture"></span> <%call picN(rs("uid"),8)%>  </a> </td>
+          <td><a class="btn btn-info btn-xs" href="g-pic.asp?uid=<%=rs("uid")%>&px=9">
+          <span class="glyphicon glyphicon-picture"></span> <%call picN(rs("uid"),9)%>  </a> </td>
             <td > 
-              <a href="user_mod.asp?ID=<%=rs("id")%>" class="btn btn-success btn-xs">修改</a> 
-              <a href="?id=<%=rs("id")%>&Action=Del" onClick="return ConfirmDel();" class="btn btn-danger btn-xs">删除</a> </td>
+              <a href="garden_mod.asp?ID=<%=rs("uid")%>" class="btn btn-success btn-xs">修改</a> 
+              <a href="?id=<%=rs("uid")%>&Action=Del" onClick="return ConfirmDel();" class="btn btn-danger btn-xs">删除</a> </td>
           </tr>
           <%
 	i=i+1
@@ -99,7 +101,7 @@ rs.open sql,conn,1,1
 action=request.QueryString("Action")
 delid=request.QueryString("id")
 if action="Del" then
-conn.execute "delete from [garden] where id="&Trim(delid)
+conn.execute "delete from [garden] where uid="&Trim(delid)
 response.Redirect("garden_List.Asp?sta=del")
 end if
 %>

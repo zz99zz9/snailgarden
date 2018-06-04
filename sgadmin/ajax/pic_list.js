@@ -3,7 +3,7 @@
 /////////////////////////////////////
 function picmod(proid,oid,picid){
 	
-	$.post("ajax/pic_list.asp",{proid:proid,oid:oid,picid:picid},
+	$.post("ajax/pic_list.asp",{uid:uid,oid:oid,picid:picid},
 	  function(data,status){
 	  if(status=="success"){
 		var jsObjstr =JSON.parse(data);

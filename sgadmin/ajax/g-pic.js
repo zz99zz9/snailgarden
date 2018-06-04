@@ -13,7 +13,6 @@ var CName,BCId,OID,Action;
 ////////////////////////////
 $(".fsave").click(function(){
  var fid= $("#fid").val();
- 
  var ffid= $("#ffid").val();
  var action=$("#fAction").val();
 	var ftit=$("#ftit").val();
@@ -78,7 +77,7 @@ function xgf(tit,txt,id,fid,oid,file,Action,table,jg){
 				str+='$("#foid").val("0");';
 				str+='$("#ftit").val("");';
 				str+='$("#ftxt").val("");';
-				str+='$("#fjg").val(jg);';
+				str+='$("#fjg").val("");';
 				str+='$("#fAction").val(action);';
 				str+='$("#ffile").val("");';
 				str+='$("#ftable").val(ftable);';

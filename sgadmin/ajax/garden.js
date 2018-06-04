@@ -9,11 +9,8 @@ action=$("#action").val();
     p1txt=$("#p1txt").val();
 	p1pic=$("#p1pic").val();
     p2txt=$("#p2txt").val();
-    p2pic=$("#p2pic").val();
 	p3txt=$("#p3txt").val();
     p4txt=$("#p4txt").val();
-    p4pic=$("#p4pic").val();
-    p4pic1=$("#p4pic1").val();
     p5txt=$("#p5txt").val();
     p6txt=$("#p6txt").val();
     p7txt=$("#p7txt").val();
@@ -29,11 +26,8 @@ console.log(action);
       p1txt:p1txt,
       p1pic:p1pic,
       p2txt:p2txt,
-      p2pic:p2pic,
       p3txt:p3txt,
       p4txt:p4txt,
-      p4pic:p4pic,
-      p4pic1:p4pic1,
       p5txt:p5txt,
       p6txt:p6txt,
       p7txt:p7txt,

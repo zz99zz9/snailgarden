@@ -10,18 +10,18 @@
 <%
 dim i
 dim sql,rs
-pro_id=request.QueryString("pro_id")
-if pro_id="" then
-sql="select * From [Table_Product] order by ArticleID desc"
+uid=request.QueryString("uid")
+if uid="" then
+sql="select * From [user] order by ID desc"
 Set rs= Server.CreateObject("ADODB.Recordset")
 rs.open sql,conn,1,1
-pro_id=rs("ArticleID")
+uid=rs("ID")
 rs.close
 set rs=nothing
 end if
-call SafeRequest(pro_id)
-'call isnumber(pro_id)
-sql="select * From [Table_Pic] where pro_id="&pro_id&" order by oid desc,id desc"
+call SafeRequest(uid)
+'call isnumber(uid)
+sql="select * From [g-Pic] where uid="&uid&" order by oid desc,id desc"
 
 Set rs= Server.CreateObject("ADODB.Recordset")
 rs.open sql,conn,1,1
@@ -39,11 +39,11 @@ rs.open sql,conn,1,1
                   <div class="col-lg-12">
                       <section class="panel">
                           <header class="panel-heading">
-                              <a href="pro_list.asp" class="btn btn-success"><i class="icon-chevron-left"></i> 返回楼盘列表</a>  
+                              <a href="garden_list.asp" class="btn btn-success"><i class="icon-chevron-left"></i> 返回花园列表</a>  
                           </header>
                           
                           <div class="row panel-body text-center">
-                          <h4><%call showpictit(pro_id)%></h4>
+                          <h4><%call id2name(uid)%></h4>
                          </div>
                           
 <!--列表开始-->
@@ -57,9 +57,9 @@ rs.open sql,conn,1,1
     </div>
 
         <div class="col-sm-6 col-md-3 col-lg-2 piclist">
-        <form name="form1" id="form1" method="post" action="pro_pic_upload.asp?proid=<%=pro_id%>" enctype="multipart/form-data" >
+        <form name="form1" id="form1" method="post" action="pro_pic_upload.asp?uid=<%=uid%>&px=<%=px%>" enctype="multipart/form-data" >
         <input type="file" name="file1" id="file1" class="hide">
-        <input type="text" name="proid" id="proid" value="<%=pro_id%>" class="hide">
+        <input type="text" name="uid" id="uid" value="<%=uid%>" class="hide">
         </form>
     <p class="addpic" ><i class="icon-picture" ></i><span>添加图片</span></p>
 <i class="thumbnail">
@@ -82,10 +82,10 @@ rs.open sql,conn,1,1
 <!--#include file="inc/windows.asp"-->
 <%
 action=request.QueryString("Action")
-delid=request.QueryString("ArticleID")
+delid=request.QueryString("ID")
 if action="Del" then
-conn.execute "delete from [Table_Pic] where Id="&Trim(delid)
-response.Redirect("Pro_List.Asp?sta=del")
+conn.execute "delete from [g_Pic] where Id="&Trim(delid)
+response.Redirect("Pic_List.Asp?sta=del")
 end if
 %>
   <script type="text/javascript">

@@ -181,7 +181,7 @@ QQ 4659489
                                       </div>
                                   </div>
                               </div>
-<!-- 添加、修改、删除房户型图、特色、服务 -->
+<!-- 花园图片 -->
                               <div class="modal fade" id="fxgclass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" style='z-index:2901; margin-top:160px; '>
                                       <div class="modal-content">
@@ -192,31 +192,27 @@ QQ 4659489
                                           <div class="modal-body" style="font-size:18px;">
 <form id="xg-class" action="" class="form-horizontal" role="form" name="xgf">
         <div class="form-group">
-    <label for="XGCName" class="col-sm-3 control-label text-right">名称</label>
+    <label for="XGCName" class="col-sm-3 control-label text-right">标题</label>
     <div class="col-sm-8">
 <input type="text" name="ftit" class="form-control" id="ftit" data-toggle="tooltip" title="由英文、数字或中文组成">
 <input type="hidden" name="fid" class="form-control" id="fid"  >
 <input type="hidden" name="ffid" class="form-control" id="ffid"  >
  <input type="hidden" name="fAction" class="form-control" id="fAction" value="add">
  <input type="hidden" name="ftable" class="form-control" id="ftable" />
+ <input type="hidden" name="fjg" class="form-control" id="fjg" >
+
     </div>
   </div>
         <div class="form-group">
-    <label for="ftxt" class="col-sm-3 control-label text-right">介绍</label>
+    <label for="ftxt" class="col-sm-3 control-label text-right">备注</label>
     <div class="col-sm-8">
 
 <textarea  name="ftxt" class="form-control" id="ftxt" data-toggle="tooltip" title="由英文、数字或中文组成"></textarea>
     </div>
   </div>
-        <div class="form-group">
-    <label for="fjg" class="col-sm-3 control-label text-right">价格</label>
-    <div class="col-sm-8">
 
-<input type="text" name="fjg" class="form-control" id="fjg" data-toggle="tooltip" title="由英文、数字或中文组成">
-    </div>
-  </div>
         <div class="form-group">
-    <label for="ffile" class="col-sm-3 control-label text-right">附件</label>
+    <label for="ffile" class="col-sm-3 control-label text-right">照片</label>
     <div class="col-sm-8 input-group">
 <input type="text" name="ffile" class="form-control" id="ffile" data-toggle="tooltip" title="请点击右侧上传按钮">
 <span class="input-group-addon b_h" onClick="window.open('Yr_UpFile.Asp?formname=xgf&editname=ffile&uppath=images/guanggao&filelx=jpg','','status=no,scrollbaRs=no,top=20,left=110,width=420,height=165')">上传附件</span>

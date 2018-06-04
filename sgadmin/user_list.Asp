@@ -15,6 +15,10 @@ sql=sql & " order by id desc"
 
 Set rs= Server.CreateObject("ADODB.Recordset")
 rs.open sql,conn,1,1
+
+
+
+     
 %>
              <!--成功失败提示-->
 <div class="alert" id="alert" style="display:none;">
@@ -49,14 +53,25 @@ rs.open sql,conn,1,1
             <th width="48" ><strong>操作</strong></td>
           </tr></thead>
           <tbody>
-          <%do while not rs.eof%>
+          <%do while not rs.eof
+          sql="select * From [garden] where wxid='"&rs("wxid")&"'"
+Set rs1= Server.CreateObject("ADODB.Recordset")
+rs1.open sql,conn,1,1
+	 if rs1.eof then
+     garden=0
+     else
+     garden=1
+     end if
+     rs1.close
+     set rs1=nothing
+     %>
           <tr > 
             <td class="hidden-phone"><%=rs("id")%></td>
-            <td class="hidden-phone"><%=rs("nickName")%>[<%=rs("rname")%>]</td>
-            <td class="hidden-phone"><%=rs("tel")%>[<%=rs("rtel")%>]</td>
+            <td class="hidden-phone"><%=rs("rname")%>[<%=rs("nickName")%>]</td>
+            <td class="hidden-phone"><%=rs("rtel")%></td>
             <td><%=rs("province")%>-<%=rs("city")%></td>
             <td class="hidden-phone"><%= rs("lasttime") %></td>
-            <td class="hidden-phone"><%if rs("garden")=1 then%><a href="garden_mod.asp?ID=<%=rs("id")%>" class="btn btn-success btn-xs">修改花园</a><%else%><a href="garden_add.asp?ID=<%=rs("id")%>" class="btn btn-success btn-xs">创建花园</a> <%end if%></td>
+            <td class="hidden-phone"><%if garden=1 then%><a href="garden_mod.asp?ID=<%=rs("id")%>" class="btn btn-success btn-xs">管理花园</a><%else%><a href="garden_add.asp?ID=<%=rs("id")%>" class="btn btn-success btn-xs">创建花园</a> <%end if%></td>
             <td > 
               <a href="user_mod.asp?ID=<%=rs("id")%>" class="btn btn-success btn-xs">修改</a> 
               <a href="?id=<%=rs("id")%>&Action=Del" onClick="return ConfirmDel();" class="btn btn-danger btn-xs">删除</a> </td>
@@ -71,6 +86,10 @@ rs.open sql,conn,1,1
           </table>
         </table>
 </form>
+<%
+     rs.close
+     set rs=nothing
+     %>
 <!--列表结束-->
                       </section>
                   </div>
