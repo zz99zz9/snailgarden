@@ -19,8 +19,16 @@ set rs=server.CreateObject("adodb.recordset")
      sql="select * from [garden] where wxid='"&opid&"'"
 	 rs.open sql,conn,1,1	 
 	 '花园特征
- p1txt=rs("p1txt")
-  p1pic=rs("p1pic")
+p1txt=rs("p1txt")
+p1pic=rs("p1pic")
+p2txt=rs("p2txt")
+p3txt=rs("p3txt")
+p4txt=rs("p4txt")
+p5txt=rs("p5txt")
+p6txt=rs("p6txt")
+p7txt=rs("p7txt")
+p8txt=rs("p8txt")
+p9txt=rs("p9txt")
 end if
 
 response.ContentType="text/json"
@@ -32,126 +40,66 @@ j.toResponse=false
 set hytz=server.createobject("scripting.dictionary")
 set hy=server.createobject("scripting.dictionary")
 set hysd=server.createobject("scripting.dictionary")
-
+set hyxp=server.createobject("scripting.dictionary")
+set hyqm=server.createobject("scripting.dictionary")
+set hygm=server.createobject("scripting.dictionary")
+set hyhj=server.createobject("scripting.dictionary")
+set hyhx=server.createobject("scripting.dictionary")
 
 '花园特征
 hytz.add "txt",p1txt
 hytz.add "img",p1pic
+
+
 '花园水电
-''花园水电pic
-
-
-set hysdpic=server.createobject("scripting.dictionary")
-set hysdpic2=server.createobject("scripting.dictionary")
-set hysdpic3=server.createobject("scripting.dictionary")
-set hysdpic4=server.createobject("scripting.dictionary")
-set hysdpic5=server.createobject("scripting.dictionary")
-set hysdpic6=server.createobject("scripting.dictionary")
-
-set rs1=server.CreateObject("adodb.recordset")
-     sql1="select count(*) as counts from [g-img] where fid="&rs("uid")&" and jg=4"
-	 rs1.open sql1,conn,1,1	 
-	 ii=rs1("counts")
-	 
-set rs1=server.CreateObject("adodb.recordset")
-     sql1="select top "&ii&" * from [g-img] where fid="&rs("uid")&" and jg=4"
-	 rs1.open sql1,conn,1,1	 
-	 select case ii 
-	 case 0 
-	 hysdpics = Array()
-	 case 1
-	 hysdpics = Array(hysdpic)
-	 case 2
-	  hysdpics = Array(hysdpic,hysdpic2)
-	  	  case 3
-	  hysdpics = Array(hysdpic,hysdpic2,hysdpic3)
-	  	  case 4
-	  hysdpics = Array(hysdpic,hysdpic2,hysdpic3,hysdpic4)
-	  	  case 5
-	  hysdpics = Array(hysdpic,hysdpic2,hysdpic3,hysdpic4,hysdpic5)
-	  case 6
-	  hysdpics = Array(hysdpic,hysdpic2,hysdpic3,hysdpic4,hysdpic5,hysdpic6)
-	  end select
-
-p1pic=rs1("file")
-p1tit=rs1("tit")
-
-rs1.movenext
-if ii>1 then
-p2pic=rs1("file")
-p2tit=rs1("tit")
-rs1.movenext
-end if
-if ii>2 then
-p3pic=rs1("file")
-p3tit=rs1("tit")
-rs1.movenext
-end if
-if ii>3 then
-p4pic=rs1("file")
-p4tit=rs1("tit")
-rs1.movenext
-end if
-if ii>4 then
-p5pic=rs1("file")
-p5tit=rs1("tit")
-rs1.movenext
-end if
-if ii>5 then
-p6pic=rs1("file")
-p6tit=rs1("tit")
-end if
-hysdpic.add "img",p1pic
-hysdpic.add "tit",p1tit
-hysdpic2.add "img",p2pic
-hysdpic2.add "tit",p2tit
-hysdpic3.add "img","3.jpg"
-hysdpic3.add "tit","标题3"
-hysdpic4.add "img","4.jpg"
-hysdpic4.add "tit","标题4"
-hysdpic5.add "img","2.jpg"
-hysdpic5.add "tit","标题2"
-hysdpic6.add "img","3.jpg"
-hysdpic6.add "tit","标题3"
-
-
-
-'dim hysdpics()
-
-
-''花园水电合成
-hysd.add "txt","花园水电"
+%>
+<!--#include file="hypic/4.asp"-->
+<%
+hysd.add "txt",p4txt
 hysd.add "pic",hysdpics
+'花园小品
+%>
+<!--#include file="hypic/5.asp"-->
+<%
+hyxp.add "txt",p5txt
+hyxp.add "pic",hyxppics
+'花园乔木
+%>
+<!--#include file="hypic/6.asp"-->
+<%
+hyqm.add "txt",p6txt
+hyqm.add "pic",hyqmpics
+'花园灌木
+%>
+<!--#include file="hypic/7.asp"-->
+<%
+hygm.add "txt",p7txt
+hygm.add "pic",hygmpics
+'花园花境
+%>
+<!--#include file="hypic/8.asp"-->
+<%
+hyhj.add "txt",p8txt
+hyhj.add "pic",hyhjpics
+'花园花絮
+%>
+<!--#include file="hypic/9.asp"-->
+<%
+hyhx.add "txt",p8txt
+hyhx.add "pic",hyhxpics
 '花园数据合成
 hy.add "hytz",hytz
-hy.add "hynz","花园泥作"
-hy.add "hymz","花园木作"
+hy.add "hynz",p2txt
+hy.add "hymz",p3txt
 hy.add "hysd",hysd
-
+hy.add "hyxp",hyxp
+hy.add "hygm",hygm
+hy.add "hyhj",hyhj
+hy.add "hyhx",hyhx
 
 
 
 a=j.toJSON(empty,hy,false)
 response.write a
-' Response.ContentType = "text/JSON"
-' Dim Jsons
-' set hytz=jsObject()
-' hytz("img")="hytz.img"
-' hytz("txt")="花园特征2"
-' hytzs=hytz.jsString
-' set hytz=Nothing
-' Set Jsons = jsObject()
-' Set hytz = jsObject()
-' Jsons("hytz") = hytzs
-' Jsons("hynz") = "花园泥作2"
-' Jsons("hymz") = "花园木作2"
-' Jsons("hysd") = "{ txt: '水电说明', pic: [{ img: '1.jpg', tit: '标题' }, { img: '2.jpg', tit: '标题' }]}"
-' Jsons("hyxp") = "{ txt: '小品说明', pic: [{ img: '1.jpg', tit: '标题' }, { img: '2.jpg', tit: '标题' }]}"
-' Jsons("hyqm") = "{ txt: '乔木说明', pic: [{ img: '1.jpg', tit: '标题' }, { img: '2.jpg', tit: '标题' }]}"
-' Jsons("hygm") = "{ txt: '灌木说明', pic: [{ img: '1.jpg', tit: '标题' }, { img: '2.jpg', tit: '标题' }]}"
-' Jsons("hyhj") = "{ txt: '花境说明', pic: [{ img: '1.jpg', tit: '标题' }, { img: '2.jpg', tit: '标题' }]}"
-' Response.write Jsons.jsString
 
-' Set Jsons = Nothing
-' Set hytz = Nothing
 %>
